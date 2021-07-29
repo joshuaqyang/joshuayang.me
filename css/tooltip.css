@@ -1,0 +1,9 @@
+span {
+  border-bottom: 3px solid #f57662;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+span:hover {
+  background: #FAE5E0;
+}
