@@ -6,7 +6,7 @@ function detectmob() {
  || navigator.userAgent.match(/iPod/i)
  || navigator.userAgent.match(/BlackBerry/i)
  || navigator.userAgent.match(/Windows Phone/i)
- || $(window).width() < 480
+ || window.innerWidth < 480
  ){
     return true;
   }
@@ -14,6 +14,8 @@ function detectmob() {
     return false;
   }
 }
+
+console.log(window.innerWidth);
 
 if (!detectmob()) {
   /*new UI for tooltips*/
@@ -109,5 +111,62 @@ if (!detectmob()) {
 }
 
 else {
+  $( function()
+  {
+      var targets = $( 'span' ),
+          target  = false,
+          tooltip = false,
+          title   = false;
 
+      targets.on( 'mouseenter', function()
+      {
+          target  = $( 'span' );
+          let tip;
+          tip = target.attr( 'title' );
+          console.log("after: " + tip);
+          tooltip = $( '<container id="tooltip"></container>' );
+
+          // alert("tip is: " + tip);
+          if( !tip || tip == '' ) {
+              return false;
+          }
+
+          target.removeAttr( 'title' );
+          tooltip.css( 'opacity', 0 )
+                 .html( tip )
+                 .appendTo( 'body' );
+
+          var init_tooltip = function()
+          {
+              tooltip.css( 'max-width', ($(window).width() - 50 ) );
+              tooltip.addClass( 'fixed-bottom' );
+
+              tooltip.css( { bottom: 20 } )
+                     .animate( { bottom: '+=10', opacity: 1 }, 400 );
+
+          };
+
+          init_tooltip();
+          $( window ).resize( init_tooltip );
+
+          var remove_tooltip = function()
+          {
+
+              tooltip.animate( { bottom: '-=10', opacity: 0 }, 300, function()
+              {
+                  $( 'container' ).remove();
+              });
+
+          };
+
+          document.getElementById('tooltip').addEventListener("click", function() {
+            remove_tooltip();
+            target.attr( 'title', tip );
+          });
+
+          // target.on( 'mouseleave', remove_tooltip );
+          // tooltip.on( 'click', remove_tooltip );
+          // target.on( 'click', remove_tooltip );
+      });
+  });
 }
