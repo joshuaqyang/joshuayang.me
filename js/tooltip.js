@@ -76,7 +76,7 @@ if (!detectmob()) {
           };
 
           init_tooltip();
-          $( window ).resize( init_tooltip );
+          // $( window ).resize( init_tooltip );
 
           var remove_tooltip = function()
           {
@@ -141,13 +141,13 @@ else {
               tooltip.css( 'max-width', ($(window).width() - 50 ) );
               tooltip.addClass( 'fixed-bottom' );
 
-              tooltip.css( { bottom: 20 } )
+              tooltip.css( { left: 10, bottom: 10 } )
                      .animate( { bottom: '+=10', opacity: 1 }, 400 );
 
           };
 
           init_tooltip();
-          $( window ).resize( init_tooltip );
+          // $( window ).resize( init_tooltip );
 
           var remove_tooltip = function()
           {
