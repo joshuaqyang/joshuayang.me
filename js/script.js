@@ -11,3 +11,27 @@ function hideFavBooks() {
    document.getElementById('favbooks').style.display = "none";
    document.getElementById('favbooks-hr-hidden').style.display = "none";
 }
+
+$('#details-show').click(function(){ showDetails(); });
+
+function showDetails() {
+  if( $('#shown-content').css('display') == 'block' ) {
+    $(document).ready(function() {
+        $('#details-show').text(function(i, oldText) {
+            return oldText === 'Details.' ? 'TL;DR' : oldText;
+        });
+    });
+    document.getElementById('shown-content').style.display = "none";
+    document.getElementById('details').style.display = "block";
+    document.getElementById('details-hr-hidden').style.display = "block";
+  } else if( $('#shown-content').css('display') == 'none' ) {
+    $(document).ready(function() {
+        $('#details-show').text(function(i, oldText) {
+            return oldText === 'TL;DR' ? 'Details.' : oldText;
+        });
+    });
+    document.getElementById('shown-content').style.display = "block";
+    document.getElementById('details').style.display = "none";
+    document.getElementById('details-hr-hidden').style.display = "none";
+  }
+}

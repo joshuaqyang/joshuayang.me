@@ -378,6 +378,24 @@ template {
   font-family: 'Source Code Pro', monospace;
 }
 
+.details-section {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 0%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-family: 'Source Code Pro', monospace;
+}
+
 @media (max-width:480px) {
   .top-section {
     margin-top: 20%;
@@ -462,7 +480,7 @@ template {
 
 .dek {
   color: #2f4858;
-  font-size: 20px;
+  font-size: 19px;
 }
 
 .body-text {
