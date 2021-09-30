@@ -19,6 +19,14 @@ function showDetails() {
     $(document).ready(function() {
         $('#details-show').text(function(i, oldText) {
             return oldText === 'Details.' ? 'TL;DR' : oldText;
+            /*
+            if (oldText === 'Details.') {
+              return 'TL;DR';
+            }
+            else {
+              return oldText;
+            }
+            */
         });
     });
     document.getElementById('shown-content').style.display = "none";
