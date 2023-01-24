@@ -33,7 +33,7 @@ body {
 .body-custom {
   margin: 0px 15px;
   padding-bottom: 50px;
-  background-color: #E8F0FF;
+  background-color: #ffffff;
 }
 
 /**
@@ -455,7 +455,7 @@ template {
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
-  justify-content: center;
+  justify-content: left;
   -webkit-box-align: center;
   -webkit-align-items: center;
   -ms-flex-align: center;
@@ -489,7 +489,7 @@ template {
 }
 
 .sub-text {
-  color: #4f7892;
+  color: #5784a1;
   font-size: 12px;
 }
 
@@ -511,11 +511,11 @@ hr {
 }
 
 a {
-  color: #f57662;
+  color: #000000;
 }
 
 a:hover {
-  color: #f3573f;
+  color: #000000;
 }
 
 .rounded-circle {
@@ -537,7 +537,7 @@ a:hover {
   bottom: 0;
   left: 0;
   overflow: hidden;
-  background-color: #2f4858;
+  background-color: #cccccc;
 }
 
 .triangle2 {
@@ -547,7 +547,7 @@ a:hover {
   top: 0;
   right: 0;
   overflow: hidden;
-  background-color: #2f4858;
+  background-color: #cccccc;
 }
 
 .top_right {
