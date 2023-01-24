@@ -12,6 +12,15 @@ function hideFavBooks() {
    document.getElementById('favbooks-hr-hidden').style.display = "none";
 }
 
+function flashHover() {
+  setTimeout(() => { document.getElementById('nameHover').style.background = "#cccccc"; }, 300);
+  setTimeout(() => { document.getElementById('nameHover').style.removeProperty('background'); }, 600);
+  setTimeout(() => { document.getElementById('nameHover').style.background = "#cccccc"; }, 900);
+  setTimeout(() => { document.getElementById('nameHover').style.removeProperty('background'); }, 1200);
+  setTimeout(() => { document.getElementById('nameHover').style.background = "#cccccc"; }, 1500);
+  setTimeout(() => { document.getElementById('nameHover').style.removeProperty('background'); }, 1800);
+}
+
 $('#details-show').click(function(){ showDetails(); });
 
 function showDetails() {
