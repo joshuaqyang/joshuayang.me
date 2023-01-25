@@ -12,6 +12,36 @@ function hideFavBooks() {
    document.getElementById('favbooks-hr-hidden').style.display = "none";
 }
 
+$('#language-toggle').click(function(){ changeLanguage(); });
+
+function changeLanguage() {
+  if( $('#english-ver').css('display') == 'block' ) {
+    $(document).ready(function() {
+        $('#language-toggle').text(function(i, oldText) {
+            return oldText === '中文版' ? 'English version' : oldText;
+            /*
+            if (oldText === 'Details.') {
+              return 'TL;DR';
+            }
+            else {
+              return oldText;
+            }
+            */
+        });
+    });
+    document.getElementById('english-ver').style.display = "none";
+    document.getElementById('chinese-ver').style.display = "block";
+  } else if( $('#english-ver').css('display') == 'none' ) {
+    $(document).ready(function() {
+        $('#language-toggle').text(function(i, oldText) {
+            return oldText === 'English version' ? '中文版' : oldText;
+        });
+    });
+    document.getElementById('chinese-ver').style.display = "none";
+    document.getElementById('english-ver').style.display = "block";
+  }
+}
+
 function flashHover() {
   setTimeout(() => { document.getElementById('nameHover').style.background = "#cccccc"; }, 300);
   setTimeout(() => { document.getElementById('nameHover').style.removeProperty('background'); }, 600);
