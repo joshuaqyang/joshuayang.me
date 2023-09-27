@@ -37,7 +37,7 @@
     <title>About</title>
 
   </head>
-  <div class="language-header"><a id="language-toggle" href="#">中文版</a></div>
+  <!--<div class="language-header"><a id="language-toggle" href="#">中文</a></div>-->
   <body class="body-custom">
     <body onload="flashHover()">
 
@@ -47,21 +47,43 @@
         <div class="my-name">Hi, I&rsquo;m <span id="nameHover" rel="tooltip" title="<img src='media/headshot_w_text.jpg' width=75% class='rounded-circle'>">Joshua</span>!</div>
 
         <div class="dek-content">
-          <div class="dek">I&rsquo;m a student, journalist, and writer.</div>
+          <div class="dek"><a id="about-show" style="text-decoration: none; color: #2f4858" href="#">About&nbsp;</a></div>
+          <div class="dek"><a id="portfolio-en-show" style="text-decoration: none; color: #9fb3bf" href="#">Work&nbsp;</a></div>
+          <div class="dek"><a id="misc-show" style="text-decoration: none; color: #9fb3bf" href="#">Misc&nbsp;</a></div>
         </div>
+
         <div class="dek-content">
           <!--<div class="dek">[<a id="details-show" href="javascript:void(0)">Details.</a>] [<a href="JoshuaYangResume.pdf" download>Resume.</a>]</div>-->
         </div>
         <div id="shown-content" style="display: block">
-          <hr>
-          <div class="main-content">
-            <div class="body-text">I&rsquo;m interested in covering cities, urban migration, and diasporas, especially via slice-of-life reporting. I&rsquo;m writing from Hong Kong this summer, thanks to the support of Princeton&rsquo;s Martin A. Dale Summer Award. I&rsquo;m a contributor for <a href="https://theyappie.com/"><i>The Yappie</i></a>, a publication covering AAPI politics and power read in Congress and the White House. I also write and edit reviews, interviews, and self-essays for the <a href="https://www.dailyprincetonian.com/"><i>The Daily Princetonian</i></a>. Read my work <a href="https://muckrack.com/joshuaqyang">here</a>.<br><br>
-            Apart from writing, I&rsquo;m deeply curious about how technology can shape journalism for the better. Last summer, I helped <a href="https://zette.com">Zette</a>, a fast-growing media startup, revamp the financial model behind digital news subscriptions and widen access to quality reporting. I worked mostly on PR, marketing, and biz ops; read about Zette in <a href="https://www.forbes.com/sites/frederickdaso/2022/08/12/media-tech-platform-zette-raises-17m-to-provide-access-to-paywalled-articles/?sh=346e2d226161">Forbes</a>. (I helped make this article possible!)<br><br>
-            During the school year, I study philosophy at Princeton (&lsquo;25). Areas of interest include practical ethics, metaethics, and our moral obligations toward the future. I&rsquo;m also pursuing minors in computer science and journalism.<br><br>
-            Let&rsquo;s chat on <a href="https://twitter.com/joshuaqyang">Twitter</a> or via <a href="mailto:joshuayang@princeton.edu">email</a>!</div>
+          <hr id="about-hr">
+          <div class="main-content" id="about">
+            <div class="body-text">I&rsquo;m a student and freelance journalist with a focus on international reporting. I spent last summer freelancing from Hong Kong (funded by Princeton University&rsquo;s Martin A. Dale &lsquo;53 Award), where I covered the Hong Kong government&rsquo;s authoritarian turn, the aftermath of the 2019 pro-democracy protests, and independent bookshop culture, among other topics. <br><br>
+              My work is featured in (or forthcoming in) <a href="https://foreignpolicy.com/2023/09/25/hong-kong-authoritarian-crackdown-censorship-china-ccp/"><i>Foreign Policy</i></a>, <a href="https://restofworld.org/2023/chinese-social-media-hong-kong-politicians/"><i>Rest of World</i></a>, <a href="https://lareviewofbooks.org"><i>LA Review of Books</i></a>, <a href="https://mekongreview.com"><i>Mekong Review</i></a>, and more. I also write and edit reviews, interviews, and self-essays for the <a href="https://www.dailyprincetonian.com/staff/joshua-yang"><i>The Daily Princetonian</i></a>.<br><br>
+            During the school year, I study journalism and philosophy at Princeton, where I&rsquo;m a third-year student. I was born and raised in California, but I&rsquo;ve also lived in Beijing and Paris.<br><br>
+            To contact me, DM me on <a href="https://twitter.com/joshuaqyang">Twitter</a> or shoot me an <a href="mailto:joshuayang@princeton.edu">email</a>.</div>
           </div>
+          <!--
           <div class="sub-content">
-            <div class="sub-text">Here are some of my <a id="favbooks-show" href="#favbooks-hr-hidden">favorite books</a>. Find me on <a href="https://twitter.com/joshuaqyang">Twitter</a>, <a href="https://www.linkedin.com/in/joshuaqyang/">LinkedIn</a>, and <a href="https://www.instagram.com/_joshua_yang/">Instagram</a>.</div>
+            <div class="sub-text">Here are some of my <a id="favbooks-show" href="#favbooks-hr-hidden">favorite books</a>. I have accounts on <a href="https://twitter.com/joshuaqyang">Twitter</a>, <a href="https://www.linkedin.com/in/joshuaqyang/">LinkedIn</a>, and <a href="https://www.instagram.com/_joshua_yang/">Instagram</a>.</div>
+          </div>-->
+
+          <!-- Work -->
+          <hr id="portfolio-en-hr-hidden" style="display: none">
+          <div id="portfolio-en" class="portfolio-en" style="display: none">
+            <div class="body-text">For a full list of my work, see my <a href="https://muckrack.com/joshuaqyang/portfolio">Muckrack</a>.</div><br>
+            <div class="body-text"><a style="text-decoration: none" href="https://foreignpolicy.com/2023/09/25/hong-kong-authoritarian-crackdown-censorship-china-ccp/"><b>Hong Kong&rsquo;s Bureaucrats Don&rsquo;t Make Good Authoritarians</a>, <i>Foreign Policy</i>, September 2023.</b><br> It turns out the Hong Kong government is really good at self-sabotage.</div><br>
+            <div class="body-text"><a style="text-decoration: none" href="https://restofworld.org/2023/chinese-social-media-hong-kong-politicians/"><b>Hong Kong politicians are making a splash on Chinese social media – and finding mainland fans</a>, <i>Rest of World</i>, August 2023.</b><br> Hong Kong leaders are opening accounts on mainland Chinese social media.</div><br>
+            <div class="body-text"><a style="text-decoration: none" href="https://theyappie.com/marshall-islands-climate-nuclear/"><b>Resilience in community: Marshallese leaders race to fill gaps in aid amid &#8216;existential threats,&#8217;</a> <i>The Yappie</i>, May 2022.</b><br> Documenting the Marshallese diaspora&rsquo;s response to climate change and a lingering nuclear legacy. [Supported by a grant from Solutions Journalism Network.]</div><br>
+            <div class="body-text"><a style="text-decoration: none" href="https://www.dailyprincetonian.com/article/2023/08/princeton-prospect-heartbreak-city-hong-kong-dispatch"><b>Heartbreak City,</a> <i>The Daily Princetonian</i>, August 2023.</b><br> On a dreamy summer in Hong Kong.</div><br>
+            <div class="body-text"><a style="text-decoration: none" href="https://theyappie.com/dear-asian-youth-is-rewriting-the-narrative-one-post-at-a-time/"><b>Dear Asian Youth is rewriting the narrative, one post at a time,</a> <i>The Yappie</i>, March 2021.</b><br> Teens take to social media for AAPI activism.</div><br>
+            <div class="body-text"><a style="text-decoration: none" href="https://www.dailyprincetonian.com/article/2023/01/lunar-new-year-chinese-american-holiday-celebrate"><b>Clinging onto Lunar New Year,</a> <i>The Daily Princetonian</i>, January 2023.</b><br> Reflections on a festive occasion.</div><br>
+          </div>
+
+          <!-- Misc -->
+          <hr id="misc-hr" style="display: none">
+          <div id="misc" class="portfolio-en" style="display: none">
+            <div class="body-text">Fun fact: I coded this website from scratch!</div>
           </div>
 
           <!-- Fav Books -->
@@ -69,8 +91,8 @@
           <div id="favbooks" class="fav-books" style="display: none">
             <div class="body-text">My favorite books, 2023 [<a id="favbooks-hide" href="javascript:void(0)">hide</a>]</div><br>
             <div class="body-text">&#8220;I believe that the books and stories we fall in love with make us who we are, or, not to claim too much, the beloved tale becomes a part of the way in which we understand things and make judgments and choices in our daily lives.&#8221; (<a href="https://www.nytimes.com/2021/05/24/opinion/sunday/salman-rushdie-world-literature.html">Salman Rushdie</a>)</div><br>
-            <div class="body-text"><b><i>Portrait of a Thief</i>, by Grace D. Li</b>: &#8220;If this had been a New York bar, the light low and the taste of possibility in the air, she would have found Alex Huang the kind of beautiful that made her want to tip her head back, to drink her in like a shot.&#8221;</div><br>
-            <div class="body-text"><b><i>On Earth We&rsquo;re Briefly Gorgeous</i>, by Ocean Vuong</b>: &#8220;Because the sunset, like survival, exists only on the verge of its own disappearing. To be gorgeous, you must first be seen, but to be seen allows you to be hunted.&#8221;</div><br>
+            <div class="body-text"><b><i>Never Let Me Go</i>, by Kazuo Ishiguro</b>: &#8220;If this had been a New York bar, the light low and the taste of possibility in the air, she would have found Alex Huang the kind of beautiful that made her want to tip her head back, to drink her in like a shot.&#8221;</div><br>
+            <div class="body-text"><b><i>The Impossible City</i>, by Karen Cheung</b>: &#8220;Because the sunset, like survival, exists only on the verge of its own disappearing. To be gorgeous, you must first be seen, but to be seen allows you to be hunted.&#8221;</div><br>
             <div class="body-text"><b><i>I&rsquo;ll Give You The Sun</i>, by Jandy Nelson</b>: &#8220;We were all heading for each other on a collision course, no matter what. Maybe some people are just meant to be in the same story.&#8221;</div><br>
             <div class="body-text"><b><i>Spacestruck</i>, by Paige Lewis</b>: &#8220;I feel / as if I&rsquo;m on the moon listening to the air hiss / out of my spacesuit, and I can&rsquo;t find the hole. I&rsquo;m / the vice president of panic, and the president is / missing.&#8221;</div><br>
             <div class="body-text"><b><i>The Wind-Up Bird Chronicle</i>, by Haruki Murakami</b>: &#8220;I thought of May Kasahara, with her blue wool hat, along on the bus taking her back to her factory in the hills. Then I thought of the duck people, asleep in the grassy shadows somewhere. And finally, I thought of the world that I was heading back to.&#8221;</div><br>
@@ -101,10 +123,10 @@
     <div class="div-block-33-chinese" id="chinese-ver" style="display: none">
       <div class="top-section">
 
-        <div class="my-name-chinese">你好，我是<span id="nameHover" rel="tooltip" title="<img src='media/headshot_w_text.jpg' width=75% class='rounded-circle'>">楊樵溪</span>！</div>
+        <div class="my-name-chinese">你好，我是 <span id="nameHover" rel="tooltip" title="<img src='media/headshot_w_text.jpg' width=75% class='rounded-circle'>">Joshua (楊樵溪)</span>。</div>
 
         <div class="dek-content">
-          <div class="dek-chinese">我是一位學生、記者和作者。</div>
+          <div class="dek-chinese">我是一位探索香港的學生記者。</div>
         </div>
         <div class="dek-content">
           <!--<div class="dek">[<a id="details-show" href="javascript:void(0)">Details.</a>] [<a href="JoshuaYangResume.pdf" download>Resume.</a>]</div>-->

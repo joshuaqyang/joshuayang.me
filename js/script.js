@@ -12,13 +12,86 @@ function hideFavBooks() {
    document.getElementById('favbooks-hr-hidden').style.display = "none";
 }
 
+$('#about-show').click(function(){ showAbout(); });
+
+function showAbout() {
+   document.getElementById('about-hr').style.display = "block";
+   document.getElementById('about').style.display = "block";
+
+   document.getElementById('portfolio-en').style.display = "none";
+   document.getElementById('portfolio-en-hr-hidden').style.display = "none";
+
+   document.getElementById('misc-hr').style.display = "none";
+   document.getElementById('misc').style.display = "none";
+
+   var aboutHiLite = document.getElementById("about-show");
+   aboutHiLite.style.color = "#2f4858";
+
+   var aboutHiLite = document.getElementById("portfolio-en-show");
+   aboutHiLite.style.color = "#9fb3bf";
+
+   var aboutHiLite = document.getElementById("misc-show");
+   aboutHiLite.style.color = "#9fb3bf";
+}
+
+$('#portfolio-en-show').click(function(){ showPortfolioEn(); });
+
+function showPortfolioEn() {
+   document.getElementById('portfolio-en').style.display = "block";
+   document.getElementById('portfolio-en-hr-hidden').style.display = "block";
+
+   document.getElementById('about-hr').style.display = "none";
+   document.getElementById('about').style.display = "none";
+
+   document.getElementById('misc-hr').style.display = "none";
+   document.getElementById('misc').style.display = "none";
+
+   var aboutHiLite = document.getElementById("about-show");
+   aboutHiLite.style.color = "#9fb3bf";
+
+   var aboutHiLite = document.getElementById("portfolio-en-show");
+   aboutHiLite.style.color = "#2f4858";
+
+   var aboutHiLite = document.getElementById("misc-show");
+   aboutHiLite.style.color = "#9fb3bf";
+}
+
+$('#misc-show').click(function(){ showMisc(); });
+
+function showMisc() {
+   document.getElementById('misc-hr').style.display = "block";
+   document.getElementById('misc').style.display = "block";
+
+   document.getElementById('about-hr').style.display = "none";
+   document.getElementById('about').style.display = "none";
+
+   document.getElementById('portfolio-en').style.display = "none";
+   document.getElementById('portfolio-en-hr-hidden').style.display = "none";
+
+   var aboutHiLite = document.getElementById("about-show");
+   aboutHiLite.style.color = "#9fb3bf";
+
+   var aboutHiLite = document.getElementById("portfolio-en-show");
+   aboutHiLite.style.color = "#9fb3bf";
+
+   var aboutHiLite = document.getElementById("misc-show");
+   aboutHiLite.style.color = "#2f4858";
+}
+
+$('#portfolio-en-hide').click(function(){ hidePortfolioEn(); });
+
+function hidePortfolioEn() {
+   document.getElementById('portfolio-en').style.display = "none";
+   document.getElementById('portfolio-en-hr-hidden').style.display = "none";
+}
+
 $('#language-toggle').click(function(){ changeLanguage(); });
 
 function changeLanguage() {
   if( $('#english-ver').css('display') == 'block' ) {
     $(document).ready(function() {
         $('#language-toggle').text(function(i, oldText) {
-            return oldText === '中文版' ? 'English version' : oldText;
+            return oldText === '中文' ? 'EN' : oldText;
             /*
             if (oldText === 'Details.') {
               return 'TL;DR';
@@ -31,10 +104,11 @@ function changeLanguage() {
     });
     document.getElementById('english-ver').style.display = "none";
     document.getElementById('chinese-ver').style.display = "block";
+
   } else if( $('#english-ver').css('display') == 'none' ) {
     $(document).ready(function() {
         $('#language-toggle').text(function(i, oldText) {
-            return oldText === 'English version' ? '中文版' : oldText;
+            return oldText === 'EN' ? '中文' : oldText;
         });
     });
     document.getElementById('chinese-ver').style.display = "none";
