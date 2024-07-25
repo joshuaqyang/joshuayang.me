@@ -417,9 +417,9 @@ template {
 }
 
 .my-name {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   color: #2f4858;
-  font-size: 24px;
+  font-size: 30px;
   text-align: center;
 }
 
@@ -583,7 +583,7 @@ a:hover {
   bottom: 0;
   left: 0;
   overflow: hidden;
-  background-color: #cccccc;
+  background-color: #edf3fc;
 }
 
 .triangle2 {
@@ -593,7 +593,7 @@ a:hover {
   top: 0;
   right: 0;
   overflow: hidden;
-  background-color: #cccccc;
+  background-color: #edf3fc;
 }
 
 .top_right {
@@ -604,3 +604,19 @@ a:hover {
 .bottom_left {
   transform: skewX(45deg);
   transform-origin: 0 100%;
+
+}
+
+.bar-container {
+    width: 100%;
+    max-width: 5000px;
+}
+
+.bar {
+    background-color: #edf3fc;
+    color: #2f4858;
+    padding: 5px 0px 5px 10px;
+    margin: 10px 0;
+    text-align: left;
+
+}

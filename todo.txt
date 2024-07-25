@@ -1,3 +1,0 @@
-- make tooltips mobile friendly and/or disable them completely for mobile
-- fix that animation bug where resizing the page causes the photo to start moving on its own
-- add 404

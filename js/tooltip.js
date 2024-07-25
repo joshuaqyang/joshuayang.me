@@ -19,6 +19,9 @@ console.log(window.innerWidth);
 
 if (!detectmob()) {
   /*new UI for tooltips*/
+
+  document.getElementById('places-lived').style.display = 'block';
+
   $( function()
   {
       var targets = $( 'span' ),
@@ -111,6 +114,7 @@ if (!detectmob()) {
 }
 
 else {
+
   $( function()
   {
       var targets = $( 'span' ),
