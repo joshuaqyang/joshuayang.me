@@ -115,6 +115,8 @@ if (!detectmob()) {
 
 else {
 
+  document.getElementById("typewriter").style.width="60%";
+
   $( function()
   {
       var targets = $( 'span' ),
