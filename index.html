@@ -28,6 +28,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/tooltip.css">
+    <link rel="stylesheet" href="css/crumple.css">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,10 +39,10 @@
 
   </head>
   <!--<div class="language-header"><a id="language-toggle" href="#">中文</a></div>-->
-  <body class="body-custom">
-    <body onload="flashHover()">
+  <body class="body-custom" onload="flashHover()">
 
     <div class="div-block-33" id="english-ver">
+
       <div class="top-section">
 
         <div class="my-name"><b>Joshua Yang</b></div>
@@ -56,12 +57,15 @@
           <!--<div class="dek">[<a id="details-show" href="javascript:void(0)">Details.</a>] [<a href="JoshuaYangResume.pdf" download>Resume.</a>]</div>-->
         </div>
         <div id="shown-content" style="display: block">
-          <hr id="about-hr">
-          <div id="about" class="main-content">
-            <div class="body-text">Joshua Yang is a freelance foreign correspondent reporting on migration, human rights, and authoritarianism across East, West, and South Asia. He has covered Indian laborers in Israel, the pro-democracy movement in Hong Kong, Chinese tourists in India, and Armenians in Jerusalem, among other topics.<br><br>
-              Joshua&rsquo;s writing appears in <a href="https://foreignpolicy.com/author/joshua-yang/"><i>Foreign Policy</i></a>, <a href="https://www.thenation.com/authors/joshua-yang/"><i>The Nation</i></a>, <a href="https://restofworld.org/author/joshua-yang/"><i>Rest of World</i></a>, <a href="https://lareviewofbooks.org/contributor/joshua-yang/"><i>LA Review of Books</i></a>, and elsewhere. He previously edited nonfiction reviews and essays for <a href="https://oxonianreview.com"><i>The Oxonian Review</i></a> and <a href="https://www.dailyprincetonian.com/staff/joshua-yang"><i>The Daily Princetonian</i></a>.<br><br>
-            During the academic year, Joshua studies moral philosophy at Princeton University.<br><br>
-            DM Joshua on <a href="https://twitter.com/joshuaqyang">Twitter</a> or send him an <a href="mailto:joshuayang@princeton.edu">email</a>. Hover <span id="nameHover" rel="tooltip" title="<img src='media/headshot_w_text.jpg' width=75% class='rounded-circle'>">for a photo</span>.</div>
+            <hr id="about-hr">
+            <canvas id="replace-with-canvas" style="display: none">
+            </canvas>
+            <div id="about" class="main-content">
+              <div class="body-text">Joshua Yang is a freelance foreign correspondent reporting on migration, human rights, and authoritarianism across East, West, and South Asia. He has covered Indian laborers in Israel, the pro-democracy movement in Hong Kong, Chinese tourists in India, and Armenians in Jerusalem, among other topics.<br><br>
+                Joshua&rsquo;s writing appears in <a href="https://foreignpolicy.com/author/joshua-yang/"><i>Foreign Policy</i></a>, <a href="https://www.thenation.com/authors/joshua-yang/"><i>The Nation</i></a>, <a href="https://restofworld.org/author/joshua-yang/"><i>Rest of World</i></a>, <a href="https://lareviewofbooks.org/contributor/joshua-yang/"><i>LA Review of Books</i></a>, and elsewhere. He previously edited nonfiction reviews and essays for <a href="https://oxonianreview.com"><i>The Oxonian Review</i></a> and <a href="https://www.dailyprincetonian.com/staff/joshua-yang"><i>The Daily Princetonian</i></a>.<br><br>
+              During the academic year, Joshua studies moral philosophy at Princeton University.<br><br>
+              DM Joshua on <a href="https://twitter.com/joshuaqyang">Twitter</a> or send him an <a href="mailto:joshuayang@princeton.edu">email</a>. Hover <span id="nameHover" rel="tooltip" title="<img src='media/headshot_w_text.jpg' width=75% class='rounded-circle'>">for a photo</span>.</div>
+            </div>
           </div>
 
 
@@ -132,7 +136,9 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/html2canvas.js"></script>
     <script src="js/tooltip.js"></script>
+    <script src="js/crumple.js"></script>
     <script src="js/script.js"></script>
   </body>
 </html>

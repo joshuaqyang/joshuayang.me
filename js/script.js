@@ -1,3 +1,9 @@
+html2canvas(document.querySelector("#about")).then(canvas => {
+  document.querySelector("#replace-with-canvas").replaceWith(canvas);
+  canvas.id = "replace-with-canvas";
+  canvas.style.display = "none";
+});
+
 $('#favbooks-show').click(function(){ showFavBooks(); });
 
 function showFavBooks() {
@@ -37,11 +43,44 @@ function showAbout() {
 $('#portfolio-en-show').click(function(){ showPortfolioEn(); });
 
 function showPortfolioEn() {
+
+    /*html2canvas(document.querySelector("#about")).then(canvas => {
+      document.querySelector("#replace-with-canvas").replaceWith(oldCanvas);
+
+        // oldContext = oldCanvas.getContext( '2d' );
+        // imgData = oldContext.getImageData(0, 0, oldCanvas.width, oldCanvas.height);
+        newCanvas = document.getElementById( 'replace-with-canvas' );
+
+        console.log(canvas.width);
+        console.log(canvas.height);
+
+        // newCanvas.style["width"] = canvas.width / 2;
+        // newCanvas.style["height"] = canvas.height / 2;
+
+        newContext = newCanvas.getContext( '2d' );
+        newContext.drawImage(canvas, 0, 0, canvas.width, canvas.height, 0, 0, canvas.width / 2, canvas.height / 2);
+
+    });
+    */
+
+    /*
+
    document.getElementById('portfolio-en').style.display = "block";
    document.getElementById('portfolio-en-hr-hidden').style.display = "block";
 
-   document.getElementById('about-hr').style.display = "none";
+   */
+
+
+
    document.getElementById('about').style.display = "none";
+   document.getElementById('replace-with-canvas').style.display = "block";
+
+   canvas = document.getElementById("replace-with-canvas");
+   context = canvas.getContext( '2d' );
+
+   let angle = 0;
+
+   crumpleEffect();
 
    document.getElementById('misc-hr').style.display = "none";
    document.getElementById('misc').style.display = "none";
