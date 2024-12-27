@@ -1,4 +1,4 @@
-<! doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -9,6 +9,19 @@
       gtag('js', new Date());
 
       gtag('config', 'G-CXLXS0T076');
+    </script>
+
+    <!-- HTML2CANVAS -->
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+    <!-- Three.js -->
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@latest/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@latest/examples/jsm/"
+        }
+      }
     </script>
 
     <!-- Favicon -->
@@ -40,8 +53,7 @@
   </head>
   <!--<div class="language-header"><a id="language-toggle" href="#">中文</a></div>-->
   <body class="body-custom" onload="flashHover()">
-
-    <div class="div-block-33" id="english-ver">
+    <script type="module" src="js/script.js"></script>
 
       <div class="top-section">
 
@@ -49,17 +61,16 @@
 
         <div class="dek-content">
           <div class="dek"><a id="about-show" style="text-decoration: none; color: #2f4858" href="#">About&nbsp;</a></div>
-          <div class="dek"><a id="portfolio-en-show" style="text-decoration: none; color: #9fb3bf" href="#">Work&nbsp;</a></div>
+          <div class="dek"><a id="work-show" style="text-decoration: none; color: #9fb3bf" href="#">Work&nbsp;</a></div>
           <div class="dek"><a id="misc-show" style="text-decoration: none; color: #9fb3bf" href="#">Misc</a></div>
         </div>
 
-        <div class="dek-content">
-          <!--<div class="dek">[<a id="details-show" href="javascript:void(0)">Details.</a>] [<a href="JoshuaYangResume.pdf" download>Resume.</a>]</div>-->
-        </div>
         <div id="shown-content" style="display: block">
+
             <hr id="about-hr">
-            <canvas id="replace-with-canvas" style="display: none">
-            </canvas>
+
+            <div id="canvasContainer" style="display: none"></div>
+
             <div id="about" class="main-content">
               <div class="body-text">Joshua Yang is a freelance foreign correspondent reporting on migration, human rights, and authoritarianism across East, West, and South Asia. He has covered Indian laborers in Israel, the pro-democracy movement in Hong Kong, Chinese tourists in India, and Armenians in Jerusalem, among other topics.<br><br>
                 Joshua&rsquo;s writing appears in <a href="https://foreignpolicy.com/author/joshua-yang/"><i>Foreign Policy</i></a>, <a href="https://www.thenation.com/authors/joshua-yang/"><i>The Nation</i></a>, <a href="https://restofworld.org/author/joshua-yang/"><i>Rest of World</i></a>, <a href="https://lareviewofbooks.org/contributor/joshua-yang/"><i>LA Review of Books</i></a>, and elsewhere. He previously edited nonfiction reviews and essays for <a href="https://oxonianreview.com"><i>The Oxonian Review</i></a> and <a href="https://www.dailyprincetonian.com/staff/joshua-yang"><i>The Daily Princetonian</i></a>.<br><br>
@@ -67,12 +78,6 @@
               DM Joshua on <a href="https://twitter.com/joshuaqyang">Twitter</a> or send him an <a href="mailto:joshuayang@princeton.edu">email</a>. Hover <span id="nameHover" rel="tooltip" title="<img src='media/headshot_w_text.jpg' width=75% class='rounded-circle'>">for a photo</span>.</div>
             </div>
           </div>
-
-
-          <!--
-          <div class="sub-content">
-            <div class="sub-text">Here are some of my <a id="favbooks-show" href="#favbooks-hr-hidden">favorite books</a>. I have accounts on <a href="https://twitter.com/joshuaqyang">Twitter</a>, <a href="https://www.linkedin.com/in/joshuaqyang/">LinkedIn</a>, and <a href="https://www.instagram.com/_joshua_yang/">Instagram</a>.</div>
-          </div>-->
 
           <!-- Work -->
           <hr id="portfolio-en-hr-hidden" style="display: none">
@@ -112,33 +117,14 @@
               </div>
               <div class="body-text">(last updated July 2024)</div>
             </div>
-            <!--
-            <div class="body-text">Some of my favorite books: </div><br>
-            <div class="body-text"><b><i>Never Let Me Go</i>, by Kazuo Ishiguro</b></div><br>
-            <div class="body-text"><b><i>One Hundred Years of Solitude</i>, by Gabriel Garc&#237;a M&#225;rquez</b></div><br>
-            <div class="body-text"><b><i>The Impossible City</i>, by Karen Cheung</b></div><br>
-            <div class="body-text"><b><i>Clandestine in Chile</i>, by Gabriel Garc&#237;a M&#225;rquez</b></div><br>
-            <div class="body-text"><b><i>The Naked Don&rsquo;t Fear the Water</i>, by Matthieu Aikins</b></div><br>
-            <div class="body-text"><b><i>Interpreter of Maladies</i>, by Jhumpa Lahiri</b></div><br>
-            <div class="body-text"><b><i>The Year of Magical Thinking</i>, by Joan Didion</b></div><br>
-            <div class="body-text"><b><i>River Town</i>, by Peter Hessler</b></div><br>
-            <div class="body-text">&#8220;I believe that the books and stories we fall in love with make us who we are, or, not to claim too much, the beloved tale becomes a part of the way in which we understand things and make judgments and choices in our daily lives.&#8221; (<a href="https://www.nytimes.com/2021/05/24/opinion/sunday/salman-rushdie-world-literature.html">Salman Rushdie</a>)</div><br>
-          -->
           </div>
-
-          <!-- Fav Books -->
-          <hr id="favbooks-hr-hidden" style="display: none">
         </div>
-        <div style="text-align: center; padding-top: 30px"><img src="media/typewriter.png" id="typewriter" width="20%"></div>
-      </div>
-    </div>
+      <div style="text-align: center; padding-top: 30px"><img src="media/typewriter.png" id="typewriter" width="20%"></div>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="js/html2canvas.js"></script>
     <script src="js/tooltip.js"></script>
-    <script src="js/crumple.js"></script>
-    <script src="js/script.js"></script>
+    <!--<script src="js/crumple.js"></script>-->
   </body>
 </html>

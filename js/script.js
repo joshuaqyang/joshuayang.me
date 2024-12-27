@@ -1,8 +1,127 @@
+import * as THREE from "three";
+import { Timer } from "three/addons/misc/Timer.js";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+
+// utility to place the screenshot on the texture
+const positionCanvasOnTexture = (sourceCanvas, left, top, width, height) => {
+  let destCanvas = document.createElement("canvas");
+  const size = Math.max(width, height);
+  destCanvas.width = size;
+  destCanvas.height = size;
+
+  const dx = width > height ? 0 : (height - width) / 2;
+  const dy = width > height ? (width - height) / 2 : 0;
+
+  const ctx = destCanvas.getContext("2d");
+  ctx.fillStyle = "white"; // NOTE: THIS DEPENDS ON THE WEBSITE BACKGROUND
+  ctx.fillRect(0, 0, size, size);
+  ctx.drawImage(
+    sourceCanvas,
+    left,
+    top,
+    width,
+    height, // source rect with content to crop
+    dx,
+    dy,
+    width,
+    height
+  );
+  return destCanvas;
+};
+
+async function crumple() {
+  document.querySelector("#canvasContainer").style = "display: block";
+
+  const timer = new Timer();
+  const loader = new GLTFLoader();
+
+  const scene = new THREE.Scene();
+  const aspect = window.innerWidth / window.innerHeight;
+  const frustumSize = 1.33; // no idea why this isn't just 1 lol; original value 1.095
+  const camera = new THREE.OrthographicCamera(
+    (frustumSize * aspect) / -2,
+    (frustumSize * aspect) / 2,
+    frustumSize / 2,
+    frustumSize / -2,
+    0.1,
+    100
+  );
+
+  // light
+  const light = new THREE.DirectionalLight(0xffffff, 3.125);
+  scene.add(light);
+
+  // create canvas element from screen
+  const html2CanvasResult = await html2canvas(document.querySelector("#about"));
+  const croppedCanvas = positionCanvasOnTexture(
+    html2CanvasResult,
+    0, // window.scrollX * window.devicePixelRatio
+    0, // window.scrollY * window.devicePixelRatio
+    window.innerWidth * window.devicePixelRatio,
+    window.innerHeight * window.devicePixelRatio
+  );
+
+  // TODO: now that screenshot has been taken, you can toggle divs
+
+  // set up material using the html2canvas object
+  const material = new THREE.MeshStandardMaterial();
+  const oldPageTexture = new THREE.CanvasTexture(croppedCanvas);
+  oldPageTexture.flipY = false;
+  oldPageTexture.colorSpace = THREE.SRGBColorSpace;
+  material.map = oldPageTexture;
+
+  // load GLB of paper
+  const gltf = await loader.loadAsync("crumple.glb");
+  const paper = gltf.scene;
+  paper.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), new THREE.Vector3(0, -1, 0));
+  paper.quaternion.setFromAxisAngle(new THREE.Vector3(1, 0, 0), Math.PI);
+  paper.children[0].material = material;
+  scene.add(paper);
+  // prepare to play animations
+  const mixer = new THREE.AnimationMixer(paper);
+  const clips = gltf.animations;
+  const actions = clips.map((clip) => {
+    const action = mixer.clipAction(clip);
+    action.loop = THREE.LoopOnce;
+    action.clampWhenFinished = true;
+    return action;
+  });
+  setTimeout(() => actions.forEach((action) => action.play()), 2500); // original value 250
+
+  // position camera
+  camera.position.y = 4.5;
+  camera.quaternion.setFromEuler(new THREE.Euler(-Math.PI / 2, 0, 0));
+
+  // renderer
+  const renderer = new THREE.WebGLRenderer({ alpha: true });
+  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.setSize(window.innerWidth, window.innerHeight);
+
+  // add renderer to page
+  document.querySelector("#canvasContainer").appendChild(renderer.domElement);
+
+  // animation loop
+  function animate(timestamp) {
+    timer.update(timestamp);
+    const delta = timer.getDelta();
+
+    mixer.update(delta);
+    renderer.render(scene, camera);
+  }
+  renderer.setAnimationLoop(animate);
+
+  setTimeout(() => {
+    document.querySelector("#canvasContainer").style = "display: none";
+  }, 200000);
+}
+
+/*
 html2canvas(document.querySelector("#about")).then(canvas => {
-  document.querySelector("#replace-with-canvas").replaceWith(canvas);
-  canvas.id = "replace-with-canvas";
+  document.querySelector("#canvasContainer").replaceWith(canvas);
+  canvas.id = "canvasContainer";
   canvas.style.display = "none";
 });
+*/
 
 $('#favbooks-show').click(function(){ showFavBooks(); });
 
@@ -33,68 +152,35 @@ function showAbout() {
    var aboutHiLite = document.getElementById("about-show");
    aboutHiLite.style.color = "#2f4858";
 
-   var aboutHiLite = document.getElementById("portfolio-en-show");
-   aboutHiLite.style.color = "#9fb3bf";
-
-   var aboutHiLite = document.getElementById("misc-show");
-   aboutHiLite.style.color = "#9fb3bf";
-}
-
-$('#portfolio-en-show').click(function(){ showPortfolioEn(); });
-
-function showPortfolioEn() {
-
-    /*html2canvas(document.querySelector("#about")).then(canvas => {
-      document.querySelector("#replace-with-canvas").replaceWith(oldCanvas);
-
-        // oldContext = oldCanvas.getContext( '2d' );
-        // imgData = oldContext.getImageData(0, 0, oldCanvas.width, oldCanvas.height);
-        newCanvas = document.getElementById( 'replace-with-canvas' );
-
-        console.log(canvas.width);
-        console.log(canvas.height);
-
-        // newCanvas.style["width"] = canvas.width / 2;
-        // newCanvas.style["height"] = canvas.height / 2;
-
-        newContext = newCanvas.getContext( '2d' );
-        newContext.drawImage(canvas, 0, 0, canvas.width, canvas.height, 0, 0, canvas.width / 2, canvas.height / 2);
-
-    });
-    */
-
-    /*
-
-   document.getElementById('portfolio-en').style.display = "block";
-   document.getElementById('portfolio-en-hr-hidden').style.display = "block";
-
-   */
-
-
-
-   document.getElementById('about').style.display = "none";
-   document.getElementById('replace-with-canvas').style.display = "block";
-
-   canvas = document.getElementById("replace-with-canvas");
-   context = canvas.getContext( '2d' );
-
-   let angle = 0;
-
-   crumpleEffect();
-
-   document.getElementById('misc-hr').style.display = "none";
-   document.getElementById('misc').style.display = "none";
-
    var aboutHiLite = document.getElementById("about-show");
    aboutHiLite.style.color = "#9fb3bf";
 
-   var aboutHiLite = document.getElementById("portfolio-en-show");
-   aboutHiLite.style.color = "#2f4858";
-
    var aboutHiLite = document.getElementById("misc-show");
    aboutHiLite.style.color = "#9fb3bf";
 }
 
+document.querySelector("#work-show").addEventListener("click", crumple);
+
+/*
+$('#about-show').click(function(){ showPortfolioEn(); });
+
+function showPortfolioEn() {
+
+  crumple();
+
+  document.getElementById('misc-hr').style.display = "none";
+  document.getElementById('misc').style.display = "none";
+
+  var aboutHiLite = document.getElementById("about-show");
+  aboutHiLite.style.color = "#9fb3bf";
+
+  var aboutHiLite = document.getElementById("about-show");
+  aboutHiLite.style.color = "#2f4858";
+
+  var aboutHiLite = document.getElementById("misc-show");
+  aboutHiLite.style.color = "#9fb3bf";
+}
+*/
 $('#misc-show').click(function(){ showMisc(); });
 
 function showMisc() {
@@ -110,7 +196,7 @@ function showMisc() {
    var aboutHiLite = document.getElementById("about-show");
    aboutHiLite.style.color = "#9fb3bf";
 
-   var aboutHiLite = document.getElementById("portfolio-en-show");
+   var aboutHiLite = document.getElementById("about-show");
    aboutHiLite.style.color = "#9fb3bf";
 
    var aboutHiLite = document.getElementById("misc-show");

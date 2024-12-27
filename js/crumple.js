@@ -127,26 +127,9 @@ function noise(x, y, t) {
  }
 
 
- function crumpleEffect() {
-
-
-    context.clearRect(0, 0, canvas.width, canvas.height);
-
-    context.save();
-    context.translate(canvas.width / 2, canvas.height / 2);
-    context.rotate(angle);
-
-    // Draw the top half of the rectangle
-    context.fillStyle = 'blue';
-    context.fillRect(-canvas.width / 4, -canvas.height / 4, canvas.width / 2, canvas.height / 2);
-
-    context.restore();
-
-    // Draw the bottom half of the rectangle
-    context.fillStyle = 'red';
-    context.fillRect(canvas.width / 4, -canvas.height / 4, canvas.width / 2, canvas.height / 2);
-
-    angle += 0.01;
-
-    requestAnimationFrame(crumpleEffect);
+function crumpleEffect() {
+  ctx.drawImage(img,0,0);
+  ctx.globalCompositeOperation='difference';
+  ctx.fillStyle='white';
+  ctx.fillRect(0,0,canvas.width,canvas.height);
 }
