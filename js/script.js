@@ -78,6 +78,45 @@ function showMisc() {
    aboutHiLite.style.color = "#2f4858";
 }
 
+$('#portfolio-reportage-toggle').click(function(){ togglePortfolioReportage(); });
+
+function togglePortfolioReportage() {
+  if( $('#portfolio-reportage').css('display') == 'none' ) {
+    document.getElementById('portfolio-reportage').style.display = "block";
+    document.getElementById('portfolio-reportage-toggle').innerHTML = "[Reportage -]";
+  }
+  else {
+    document.getElementById('portfolio-reportage').style.display = "none";
+    document.getElementById('portfolio-reportage-toggle').innerHTML = "[Reportage +]";
+  }
+}
+
+$('#portfolio-analysis-toggle').click(function(){ togglePortfolioAnalysis(); });
+
+function togglePortfolioAnalysis() {
+  if( $('#portfolio-analysis').css('display') == 'none' ) {
+    document.getElementById('portfolio-analysis').style.display = "block";
+    document.getElementById('portfolio-analysis-toggle').innerHTML = "[Analysis -]";
+  }
+  else {
+    document.getElementById('portfolio-analysis').style.display = "none";
+    document.getElementById('portfolio-analysis-toggle').innerHTML = "[Analysis +]";
+  }
+}
+
+$('#portfolio-essays-toggle').click(function(){ togglePortfolioEssays(); });
+
+function togglePortfolioEssays() {
+  if( $('#portfolio-essays').css('display') == 'none' ) {
+    document.getElementById('portfolio-essays').style.display = "block";
+    document.getElementById('portfolio-essays-toggle').innerHTML = "[Essays and Reviews -]";
+  }
+  else {
+    document.getElementById('portfolio-essays').style.display = "none";
+    document.getElementById('portfolio-essays-toggle').innerHTML = "[Essays and Reviews +]";
+  }
+}
+
 $('#portfolio-en-hide').click(function(){ hidePortfolioEn(); });
 
 function hidePortfolioEn() {
