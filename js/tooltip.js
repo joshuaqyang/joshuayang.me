@@ -20,7 +20,7 @@ console.log(window.innerWidth);
 if (!detectmob()) {
   /*new UI for tooltips*/
 
-  document.getElementById('places-lived').style.display = 'block';
+  // document.getElementById('places-lived').style.display = 'block';
 
   $( function()
   {
